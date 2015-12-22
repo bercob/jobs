@@ -1,7 +1,10 @@
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
+  <h1><%= @user.email %></h1>
+  <div>
+    <strong>Admin:</strong>
+    <%= check_box_tag 'yes', '1', @user.admin, disabled: true %>
+  </div>
+<br>
+  <% if current_user.admin? || current_user.id == @user.id %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <% end %>
 <%= link_to 'Back', users_path %>

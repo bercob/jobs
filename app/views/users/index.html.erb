@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Email</th>
+      <th>Admin</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -11,15 +12,25 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td width="100%"><%= user.email %></td>
+        <td width="50%"><%= user.email %></td>
+        <td width="50%"><%= check_box_tag 'yes', '1', user.admin, disabled: true %></td>
         <td><%= link_to 'Show', user , class: 'btn btn-default' %></td>
-        <td><%= link_to 'Edit', edit_user_path(user), class: 'btn btn-default' %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %></td>
+        <td>
+        <% if current_user.admin? || current_user.id == user.id %>
+          <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-default' %>
+        <% end %>
+        </td>
+        <td>
+        <% if current_user.admin? %>
+          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path, class: 'btn btn-default' %>
+<% if current_user.admin? %>
+  <%= link_to 'New User', new_user_path, class: 'btn btn-default' %>
+<% end %>

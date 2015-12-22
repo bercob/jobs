@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :require_login
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :create, :destroy]
+  before_action :require_admin_except_own_data, only: [:edit, :update]
 
   # GET /users
   # GET /users.json
@@ -70,6 +72,20 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      if current_user.admin?
+        params.require(:user).permit(:email, :password, :password_confirmation, :admin)
+      else
+        params.require(:user).permit(:email, :password, :password_confirmation)
+      end
+    end
+
+    def require_admin
+      unless current_user.admin?
+        redirect_to :back, alert: 'Admin permission needed'
+      end
+    end
+
+    def require_admin_except_own_data
+      require_admin if @user.id != current_user.id
     end
 end
