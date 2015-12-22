@@ -21,10 +21,10 @@
   <div id="nav" class="row">
     <div class="col-*-6">
     <% if current_user %>
-        <%= link_to "Edit Profile", edit_user_path(current_user.id) %> |
-        <%= link_to "Logout", :logout, method: :post, data: { confirm: 'Are you sure?' } %>
+        <%= link_to "Edit Profile", edit_user_path(current_user.id), class: 'btn btn-default' %>
+        <%= link_to "Logout", :logout, method: :post, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
     <% else %>
-        <%= link_to "Login", :login %>
+        <%= link_to "Login", :login, class: 'btn btn-default' %>
     <% end %>
     </div>
     <% if current_user %>

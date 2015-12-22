@@ -1,13 +1,5 @@
-<%= form_tag user_sessions_path, :method => :post do %>
-    <div class="field">
-      <%= label_tag :email %><br />
-      <%= text_field_tag :email, value = @email %>
-    </div>
-    <div class="field">
-      <%= label_tag :password %><br />
-      <%= password_field_tag :password %>
-    </div>
-    <div class="actions">
-      <%= submit_tag "Login" %>
-    </div>
+<%= simple_form_for :user_sessions, url: user_sessions_path do |f| %>
+    <div><%= f.input :email, input_html: { value: @email } %></div>
+    <div><%= f.input :password %></div>
+    <div><%= f.button :submit, 'Login' %></div>
 <% end %>
