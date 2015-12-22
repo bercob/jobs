@@ -8,8 +8,34 @@
 </head>
 <body>
 <div class="container">
+  <% if current_user %>
+      <div class="row">
+        <div class="col-sm-12 text-right">welcome <%= current_user.email %></div>
+      </div>
+  <% end %>
   <div class="row">
-    <div class="col-*-*">
+    <div class="panel panel-default">
+      <div class="panel-body menu-panel">
+        <div class="col-sm-6">
+          <% if current_user %>
+              <%= link_to 'Users', :users, class: 'btn btn-default' %>
+          <% end %>
+        </div>
+        <div class="col-sm-6 text-right">
+          <% if current_user %>
+              <%= link_to 'Edit Profile', edit_user_path(current_user.id), class: 'btn btn-default' %>
+              <%= link_to 'Logout', :logout, method: :post, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+          <% else %>
+              <%= link_to 'Login', :login, class: 'btn btn-default' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><%= yield %></div>
+  <br>
+  <div class="row">
+    <div class="col-sm-*">
       <% if flash[:notice] %>
           <div id="notice" class="alert alert-success"><%= flash[:notice] %></div>
       <% end  %>
@@ -18,21 +44,6 @@
       <% end %>
     </div>
   </div>
-  <div id="nav" class="row">
-    <div class="col-*-6">
-    <% if current_user %>
-        <%= link_to "Edit Profile", edit_user_path(current_user.id), class: 'btn btn-default' %>
-        <%= link_to "Logout", :logout, method: :post, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
-    <% else %>
-        <%= link_to "Login", :login, class: 'btn btn-default' %>
-    <% end %>
-    </div>
-    <% if current_user %>
-    <div class="col-*-6"><span class="pull-right">welcome <%= current_user.email %></span></div>
-    <% end %>
-  </div>
-  <div><%= yield %></div>
-
 </div>
 
 </body>
