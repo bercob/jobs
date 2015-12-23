@@ -20,7 +20,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(:welcome_index, notice: 'Logged out!')
+    redirect_to(:static_pages_home, notice: 'Logged out!')
   end
 
 end
