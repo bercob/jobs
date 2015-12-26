@@ -1,9 +1,20 @@
   <h1><%= @user.email %></h1>
   <div>
+    <strong>Degree:</strong>
+    <%=
+        if @user.degree
+          @user.degree.name
+        else
+          'no degree'
+        end
+    %>
+  </div>
+  <div>
     <strong>Admin:</strong>
     <%= check_box_tag 'yes', '1', @user.admin, disabled: true %>
   </div>
-<br>
+
+  <br>
   <% if current_user.admin? || current_user.id == @user.id %>
   <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-default' %>
   <% end %>

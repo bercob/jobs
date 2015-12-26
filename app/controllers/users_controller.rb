@@ -73,9 +73,9 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       if current_user.admin?
-        params.require(:user).permit(:email, :password, :password_confirmation, :admin)
+        params.require(:user).permit(:email, :password, :password_confirmation, :degree_id, :admin)
       else
-        params.require(:user).permit(:email, :password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation, :degree_id)
       end
     end
 

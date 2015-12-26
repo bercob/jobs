@@ -13,6 +13,14 @@
     <% @users.each do |user| %>
       <tr>
         <td width="50%"><%= user.email %></td>
+        <td width="50%">
+          <%= if user.degree
+                user.degree.name
+              else
+                'no degree'
+              end
+          %>
+        </td>
         <td width="50%"><%= check_box_tag 'yes', '1', user.admin, disabled: true %></td>
         <td><%= link_to 'Show', user , class: 'btn btn-default' %></td>
         <td>
