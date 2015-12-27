@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_admin, only: [:new, :create, :destroy]
   before_action :require_admin_except_own_data, only: [:edit, :update]
+  before_action :set_languages, only: [:new, :edit]
 
   # GET /users
   # GET /users.json
@@ -70,12 +71,16 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def set_languages
+      @languages = Language.order('name asc').all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       if current_user.admin?
-        params.require(:user).permit(:email, :password, :password_confirmation, :degree_id, :admin)
+        params.require(:user).permit(:email, :password, :password_confirmation, :degree_id, { :language_ids => [] }, :admin)
       else
-        params.require(:user).permit(:email, :password, :password_confirmation, :degree_id)
+        params.require(:user).permit(:email, :password, :password_confirmation, :degree_id, { :language_ids => [] })
       end
     end
 

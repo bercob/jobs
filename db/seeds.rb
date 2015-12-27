@@ -8,3 +8,4 @@
 Degree.create([{name: 'Mgr.'}, {name: 'Dr.'}, {name: 'PhDr.'}])
 d = Degree.create(name: 'Ing.')
 d.users.new(email: 'bercob@gmail.com', crypted_password: '$2a$10$Hzw4Gwe4eiUfVRp.uRg40OYQzutu1g.LLG9NSf/Ixc1hfxeMOVSum', salt: 'XXyyogy5eD9gDhxgvssz', admin: true).save(validate: false)
+Language.create([{name: 'english'}, {name: 'slovak'}, {name: 'german'}, {name: 'hungarian'}])

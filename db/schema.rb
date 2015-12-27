@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225220710) do
+ActiveRecord::Schema.define(version: 20151227122209) do
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name",       null: false
@@ -20,6 +20,23 @@ ActiveRecord::Schema.define(version: 20151225220710) do
   end
 
   add_index "degrees", ["name"], name: "index_degrees_on_name", unique: true
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "languages", ["name"], name: "index_languages_on_name", unique: true
+
+  create_table "languages_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "languages_users", ["user_id", "language_id"], name: "index_languages_users_on_user_id_and_language_id", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",            null: false

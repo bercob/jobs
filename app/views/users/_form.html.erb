@@ -3,9 +3,19 @@
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
     <%= f.association :degree %>
+    <div class="panel panel-default">
+      <div class="panel-body panel-vertical-scroll">
+    <%= f.association :languages,
+                      label: false,
+                      collection: @languages,
+                      as: :check_boxes
+    %>
+      </div>
+    </div>
     <% if current_user.admin? %>
       <%= f.input :admin %>
     <% end %>
     <%= f.button :submit %>
 <% end %>
+
 

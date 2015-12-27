@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="Sqlite (Xerial) - development.sqlite3" uuid="11878072-8f85-4665-b19b-14599da02088">
+  <data-source name="Sqlite (Xerial) - development.sqlite3" uuid="94e35795-1214-4dd1-a5d0-22f07b301a4f">
     <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
@@ -11,6 +11,23 @@
       <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
       <index name="index_degrees_on_name" unique="true" columns="name"/>
+    </table>
+    <table name="languages" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_languages_on_name" unique="true" columns="name"/>
+    </table>
+    <table name="languages_users" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="language_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_languages_users_on_user_id_and_language_id" unique="true" columns="user_id,language_id"/>
     </table>
     <table name="schema_migrations" schema="" catalog="" type="TABLE">
       <column name="version" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
@@ -30,8 +47,8 @@
       <column name="admin" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <column name="degree_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <primary-key columns="id"/>
-      <index name="index_users_on_email" unique="true" columns="email"/>
       <index name="index_users_on_degree_id" unique="true" columns="degree_id"/>
+      <index name="index_users_on_email" unique="true" columns="email"/>
     </table>
   </data-source>
 </component>
