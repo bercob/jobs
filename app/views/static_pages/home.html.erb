@@ -1,1 +1,12 @@
 <h1>Home</h1>
+
+<% @offers.each do |offer| %>
+    offer_id = <%= offer['id'] %><br>
+    offerdate = <%= offer.xpath('offerdate')[0]['value'] %><br>
+    last_updated = <%= offer.xpath('last_updated').text %><br>
+    position = <%= offer.xpath('position').text %><br>
+    <% offer.xpath('offercategories//offercategory').each do |oc| %>
+        offercategory_id = <%= oc['id'] %><br>
+        offercategory = <%= oc.text %><br>
+    <% end %>
+<% end %>
