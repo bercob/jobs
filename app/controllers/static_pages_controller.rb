@@ -7,7 +7,6 @@ class StaticPagesController < ApplicationController
     end
 
     @offers = doc.xpath('//export//list//offer')
-    #TODO: save xml to database
   end
 
   def contact

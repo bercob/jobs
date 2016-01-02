@@ -1,0 +1,18 @@
+<%= simple_form_for(@offer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :external_offer_id %>
+    <%= f.input :offerdate %>
+    <%= f.input :position %>
+    <%= f.input :location %>
+    <%= f.input :content %>
+    <%= f.input :url %>
+    <%= f.input :company %>
+    <%= f.input :ico %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
