@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160102115901) do
+ActiveRecord::Schema.define(version: 20160104162344) do
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name",       null: false
@@ -21,6 +21,23 @@ ActiveRecord::Schema.define(version: 20160102115901) do
 
   add_index "degrees", ["name"], name: "index_degrees_on_name", unique: true
 
+  create_table "jobtypes", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "jobtypes", ["name"], name: "index_jobtypes_on_name", unique: true
+
+  create_table "jobtypes_offers", id: false, force: :cascade do |t|
+    t.integer  "offer_id"
+    t.integer  "jobtype_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "jobtypes_offers", ["offer_id", "jobtype_id"], name: "index_jobtypes_offers_on_offer_id_and_jobtype_id", unique: true
+
   create_table "languages", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
@@ -29,7 +46,7 @@ ActiveRecord::Schema.define(version: 20160102115901) do
 
   add_index "languages", ["name"], name: "index_languages_on_name", unique: true
 
-  create_table "languages_users", force: :cascade do |t|
+  create_table "languages_users", id: false, force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "language_id"
     t.datetime "created_at",  null: false
@@ -45,6 +62,23 @@ ActiveRecord::Schema.define(version: 20160102115901) do
   end
 
   add_index "offer_sources", ["name"], name: "index_offer_sources_on_name", unique: true
+
+  create_table "offercategories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "offercategories", ["name"], name: "index_offercategories_on_name", unique: true
+
+  create_table "offercategories_offers", id: false, force: :cascade do |t|
+    t.integer  "offer_id",         null: false
+    t.integer  "offercategory_id", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "offercategories_offers", ["offer_id", "offercategory_id"], name: "index_offercategories_offers_on_offer_id_and_offercategory_id", unique: true
 
   create_table "offers", force: :cascade do |t|
     t.string   "external_offer_id"

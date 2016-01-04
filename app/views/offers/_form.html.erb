@@ -10,6 +10,26 @@
     <%= f.input :url %>
     <%= f.input :company %>
     <%= f.input :ico %>
+    <div class="panel panel-default">
+      <div class="panel-heading">Offer categories</div>
+      <div class="panel-body panel-vertical-scroll">
+        <%= f.association :offercategories,
+                          label: false,
+                          collection: @offercategories,
+                          as: :check_boxes
+        %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Job types</div>
+      <div class="panel-body panel-vertical-scroll">
+        <%= f.association :jobtypes,
+                          label: false,
+                          collection: @jobtypes,
+                          as: :check_boxes
+        %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">

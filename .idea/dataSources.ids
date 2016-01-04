@@ -12,6 +12,21 @@
       <primary-key columns="id"/>
       <index name="index_degrees_on_name" unique="true" columns="name"/>
     </table>
+    <table name="jobtypes" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_jobtypes_on_name" unique="true" columns="name"/>
+    </table>
+    <table name="jobtypes_offers" schema="" catalog="" type="TABLE">
+      <column name="offer_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="jobtype_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <index name="index_jobtypes_offers_on_offer_id_and_jobtype_id" unique="true" columns="offer_id,jobtype_id"/>
+    </table>
     <table name="languages" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
@@ -21,12 +36,10 @@
       <index name="index_languages_on_name" unique="true" columns="name"/>
     </table>
     <table name="languages_users" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <column name="language_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <primary-key columns="id"/>
       <index name="index_languages_users_on_user_id_and_language_id" unique="true" columns="user_id,language_id"/>
     </table>
     <table name="offer_sources" schema="" catalog="" type="TABLE">
@@ -37,8 +50,24 @@
       <primary-key columns="id"/>
       <index name="index_offer_sources_on_name" unique="true" columns="name"/>
     </table>
-    <table name="offers" schema="" catalog="" type="TABLE">
+    <table name="offercategories" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_offercategories_on_name" unique="true" columns="name"/>
+    </table>
+    <table name="offercategories_offers" schema="" catalog="" type="TABLE">
       <column name="offer_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="offercategory_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <index name="index_offercategories_offers_on_offer_id_and_offercategory_id" unique="true" columns="offer_id,offercategory_id"/>
+    </table>
+    <table name="offers" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="external_offer_id" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="offerdate" sqlType="DATE" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="last_update" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="position" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
@@ -50,8 +79,9 @@
       <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="offer_source_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
-      <primary-key columns="offer_id"/>
+      <primary-key columns="id"/>
       <index name="index_offers_on_offer_source_id" unique="true" columns="offer_source_id"/>
+      <index name="index_offers_on_external_offer_id" unique="true" columns="external_offer_id"/>
     </table>
     <table name="schema_migrations" schema="" catalog="" type="TABLE">
       <column name="version" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
@@ -71,8 +101,8 @@
       <column name="admin" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <column name="degree_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <primary-key columns="id"/>
-      <index name="index_users_on_email" unique="true" columns="email"/>
       <index name="index_users_on_degree_id" unique="true" columns="degree_id"/>
+      <index name="index_users_on_email" unique="true" columns="email"/>
     </table>
   </data-source>
 </component>

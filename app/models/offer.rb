@@ -1,5 +1,7 @@
 class Offer < ActiveRecord::Base
   belongs_to :offer_source
+  has_and_belongs_to_many :jobtypes
+  has_and_belongs_to_many :offercategories
   before_save :generate_timestamp
   validates :position, presence: true
 
