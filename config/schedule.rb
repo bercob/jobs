@@ -20,5 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every '* * * * *' do
-  runner 'Cron.get_external_offers', :environment => :development
+  runner 'OffersHelper.get_external_offers', :environment => :development
 end

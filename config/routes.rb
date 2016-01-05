@@ -12,11 +12,16 @@ Rails.application.routes.draw do
 
   get 'static_pages/reference'
 
-  get 'login' => 'user_sessions#new', :as => :login
-  post 'logout' => 'user_sessions#destroy', :as => :logout
+  get 'login' => 'user_sessions#new'
+  post 'logout' => 'user_sessions#destroy'
 
   resources :users
   resources :user_sessions
+
+  unless Rails.application.config.consider_all_requests_local
+    get '*not_found' => 'errors#error_404'
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -72,4 +77,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end

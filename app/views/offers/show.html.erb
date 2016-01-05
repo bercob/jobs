@@ -32,7 +32,7 @@
 
 <p>
   <strong>Url:</strong>
-  <%= link_to @offer.offer_source.name, @offer.url %>
+  <%= link_to @offer.offer_source.name, url_with_protocol(@offer.url), target: '_blank' %>
 </p>
 
 <p>
@@ -45,7 +45,34 @@
   <%= @offer.ico %>
 </p>
 
-<% if @offer.offer_source == OfferSource.find_by(name: 'local') %>
+<% if @offer.offercategories.length > 0 %>
+<p>
+  <strong>Offer categories:</strong>
+  <% @offer.offercategories.each do |oc| %>
+  <div><%= oc.name %></div>
+  <% end %>
+</p>
+<% end %>
+
+<% if @offer.offerpositions.length > 0 %>
+<p>
+  <strong>Offer positions:</strong>
+  <% @offer.offerpositions.each do |op| %>
+    <div><%= op.name %></div>
+<% end %>
+</p>
+<% end %>
+
+<% if @offer.offerregions.length > 0 %>
+<p>
+  <strong>Offer regions:</strong>
+  <% @offer.offerregions.each do |oreg| %>
+    <div><%= oreg.name %></div>
+<% end %>
+</p>
+<% end %>
+
+<% if current_user && @offer.offer_source == OfferSource.find_by(name: 'local') %>
     <%= link_to 'Edit', edit_offer_path(@offer), class: 'btn btn-default' %>
 <% end %>
-<%= link_to 'Back', offers_path, class: 'btn btn-default' %>
+<%= link_to 'Back', :back, class: 'btn btn-default' %>

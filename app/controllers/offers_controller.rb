@@ -1,13 +1,12 @@
 class OffersController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: [:show]
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
-  before_action :set_offercategories, only: [:new, :edit]
-  before_action :set_jobtypes, only: [:new, :edit]
+  before_action :set_codelists, only: [:new, :edit]
 
   # GET /offers
   # GET /offers.json
   def index
-    Cron.get_external_offers
+   OffersHelper.get_external_offers
     @offers = Offer.all
   end
 
@@ -71,16 +70,15 @@ class OffersController < ApplicationController
       @offer = Offer.find(params[:id])
     end
 
-    def set_offercategories
+    def set_codelists
       @offercategories = Offercategory.order('name asc').all
-    end
-
-    def set_jobtypes
       @jobtypes = Jobtype.order('name asc').all
+      @offerregions = Offerregion.order('name asc').all
+      @offerpositions = Offerposition.order('name asc').all
     end
 
   # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:external_offer_id, :offerdate, :position, :location, :content, :url, :company, :ico, { :offercategory_ids => [] }, { :jobtype_ids => [] })
+      params.require(:offer).permit(:external_offer_id, :offerdate, :position, :location, :content, :url, :company, :ico, { :offercategory_ids => [] }, { :jobtype_ids => [] }, { :offerposition_ids => [] }, { :offerregion_ids => [] })
     end
 end

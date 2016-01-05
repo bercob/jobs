@@ -1,5 +1,5 @@
   <h1><%= @user.email %></h1>
-  <div>
+  <p>
     <strong>Degree:</strong>
     <%=
         if @user.degree
@@ -8,11 +8,20 @@
           'no degree'
         end
     %>
-  </div>
-  <div>
+  </p>
+  <p>
     <strong>Admin:</strong>
     <%= check_box_tag 'yes', '1', @user.admin, disabled: true %>
-  </div>
+  </p>
+
+  <% if @user.languages.length > 0 %>
+      <p>
+        <strong>Languages:</strong>
+        <% @user.languages.each do |l| %>
+          <div><%= l.name %></div>
+      <% end %>
+      </p>
+  <% end %>
 
   <br>
   <% if current_user.admin? || current_user.id == @user.id %>

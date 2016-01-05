@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104162344) do
+ActiveRecord::Schema.define(version: 20160105102456) do
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name",       null: false
@@ -79,6 +79,40 @@ ActiveRecord::Schema.define(version: 20160104162344) do
   end
 
   add_index "offercategories_offers", ["offer_id", "offercategory_id"], name: "index_offercategories_offers_on_offer_id_and_offercategory_id", unique: true
+
+  create_table "offerpositions", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "offerpositions", ["name"], name: "index_offerpositions_on_name", unique: true
+
+  create_table "offerpositions_offers", id: false, force: :cascade do |t|
+    t.integer  "offer_id"
+    t.integer  "offerposition_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "offerpositions_offers", ["offer_id", "offerposition_id"], name: "index_offerpositions_offers_on_offer_id_and_offerposition_id", unique: true
+
+  create_table "offerregions", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "offerregions", ["name"], name: "index_offerregions_on_name", unique: true
+
+  create_table "offerregions_offers", id: false, force: :cascade do |t|
+    t.integer  "offer_id"
+    t.integer  "offerregion_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "offerregions_offers", ["offer_id", "offerregion_id"], name: "index_offerregions_offers_on_offer_id_and_offerregion_id", unique: true
 
   create_table "offers", force: :cascade do |t|
     t.string   "external_offer_id"

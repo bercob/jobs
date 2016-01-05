@@ -23,7 +23,11 @@
         <td><%= offer.last_update %></td>
         <td><%= offer.position %></td>
         <td><%= offer.location %></td>
-        <td><%= link_to offer.offer_source.name, offer.url %></td>
+        <td>
+          <% if offer.url.length > 0 %>
+            <%= link_to offer.offer_source.name, url_with_protocol(offer.url), target: '_blank' %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', offer %></td>
         <td>
           <% if offer.offer_source == OfferSource.find_by(name: 'local') %>
