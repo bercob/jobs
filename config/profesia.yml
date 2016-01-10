@@ -1,0 +1,11 @@
+default: &default
+  api_url: 'https://www.profesia.sk/partner/export.php?auth=241c54637eb11777b50d6ba7e9c29eba'
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

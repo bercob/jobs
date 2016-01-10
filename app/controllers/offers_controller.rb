@@ -1,12 +1,12 @@
 class OffersController < ApplicationController
   before_action :require_login, except: [:show]
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
-  before_action :set_codelists, only: [:new, :edit]
+  before_action :set_codelists, only: [:new, :edit, :create, :update]
 
   # GET /offers
   # GET /offers.json
   def index
-   OffersHelper.get_external_offers
+    Import::Profesia.new.import!
     @offers = Offer.all
   end
 

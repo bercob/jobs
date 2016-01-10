@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '404', to: 'errors#error_404', code: 404
+
   resources :offers
   get 'static_pages/home'
 
@@ -17,11 +19,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :user_sessions
-
-  unless Rails.application.config.consider_all_requests_local
-    get '*not_found' => 'errors#error_404'
-  end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

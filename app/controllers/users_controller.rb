@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_admin, only: [:new, :create, :destroy]
   before_action :require_admin_except_own_data, only: [:edit, :update]
-  before_action :set_languages, only: [:new, :edit]
+  before_action :set_languages, only: [:new, :edit, :create, :update]
 
   # GET /users
   # GET /users.json

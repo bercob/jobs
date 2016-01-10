@@ -1,12 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-Degree.create([{name: 'Mgr.'}, {name: 'Dr.'}, {name: 'PhDr.'}])
-d = Degree.create(name: 'Ing.')
-d.users.new(email: 'bercob@gmail.com', crypted_password: '$2a$10$Hzw4Gwe4eiUfVRp.uRg40OYQzutu1g.LLG9NSf/Ixc1hfxeMOVSum', salt: 'XXyyogy5eD9gDhxgvssz', admin: true).save(validate: false)
+degrees = ['Ing.', 'Mgr.', 'Dr.', 'PhDr.']
+last_degree = degrees.map { |degree| Degree.create name: degree }.first
+
+user = last_degree.users.new(email: 'bercob@gmail.com', admin: true)
+user.password = 'admin'
+user.password_confirmation = 'admin'
+user.save
+
+
 Language.create([{name: 'english'}, {name: 'slovak'}, {name: 'german'}, {name: 'hungarian'}])
+
 OfferSource.create([{name: 'local'}, {name: 'profesia.sk'}])

@@ -8,11 +8,16 @@
 </head>
 <body>
 <div class="container">
-  <% if current_user %>
       <div class="row">
-        <div class="col-sm-12 text-right">welcome <%= current_user.email %></div>
+        <div class="col-sm-6">
+          <% if current_user %>
+              welcome <%= current_user.email %>
+          <% end %>
+        </div>
+        <div class="col-sm-6 text-right">
+          <%= link_to 'sk', url_for(lang: 'sk') %> | <%= link_to 'en', url_for(lang: 'en') %>
+        </div>
       </div>
-  <% end %>
   <div class="row">
     <div class="panel panel-default">
       <div class="panel-body menu-panel">
@@ -43,10 +48,14 @@
   <div class="row">
     <div class="col-sm-*">
       <% if flash[:notice] %>
-          <div id="notice" class="alert alert-success"><%= flash[:notice] %></div>
+          <div id="notice" class="alert alert-success">
+            <button class="close" type="button" data-dismiss="alert">×</button>
+            <%= flash[:notice] %></div>
       <% end  %>
       <% if flash[:alert] %>
-          <div class="alert alert-danger"><%= flash[:alert] %></div>
+          <div class="alert alert-danger">
+            <button class="close" type="button" data-dismiss="alert">×</button>
+            <%= flash[:alert] %></div>
       <% end %>
     </div>
   </div>

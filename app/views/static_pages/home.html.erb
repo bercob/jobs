@@ -1,9 +1,9 @@
-<h1>Home</h1>
+<h1><%=  t 'static.home' %></h1>
 
 <% @offers.each do |offer| %>
     <div class="list-group">
-      <div class="list-group-item"><%= offer.offerdate.strftime("%d.%m.%Y") %></div>
+      <div class="list-group-item"><%= offer.offerdate.present? ? l(offer.offerdate) : t('not_set') %></div>
       <div class="list-group-item"><%= offer.position %></div>
-      <div class="list-group-item-text"><%= link_to 'detail', offer %></div>
+      <div class="list-group-item-text"><%= link_to t('static.detail'), offer %></div>
     </div>
 <% end %>

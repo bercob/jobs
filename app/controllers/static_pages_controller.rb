@@ -1,8 +1,6 @@
-require 'open-uri'
-
 class StaticPagesController < ApplicationController
   def home
-    OffersHelper.get_external_offers
+    Import::Profesia.new.import!
     @offers = Offer.order('offerdate desc').all
   end
 

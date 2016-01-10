@@ -53,7 +53,7 @@ group :development do
 
   gem 'pry-rails'
   gem 'awesome_print'
-
+  gem 'annotate'
 end
 
 group :production do
