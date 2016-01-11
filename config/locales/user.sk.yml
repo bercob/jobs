@@ -1,0 +1,6 @@
+sk:
+  user:
+    created: 'Užívateľ bol úspešne vytvorený.'
+    updated: 'Užívateľ bol úspešne upravený.'
+    destroyed: 'Užívateľ bol úspešne zrušený.'
+    edit_profile: 'Editácia profilu'

@@ -1,0 +1,6 @@
+en:
+  offer:
+    not_url: 'URL has been not found'
+    created: 'Offer was successfully created.'
+    updated: 'Offer was successfully updated.'
+    destroyed: 'Offer was successfully destroyed.'

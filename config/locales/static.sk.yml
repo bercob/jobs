@@ -1,4 +1,12 @@
 sk:
   static:
-    home: 'doma'
+    home: 'Home'
     detail: 'detail'
+    customer_services: 'Služby zákazníkom'
+    services_for_applicants: 'Služby uchádzačom'
+    reference: 'Referencie'
+    contact: 'Kontakt'
+    users: 'Užívatelia'
+    offers: 'Pracovné ponuky'
+    about: 'O nás'
+    welcome: 'vítaj'

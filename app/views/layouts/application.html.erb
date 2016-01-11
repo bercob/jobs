@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-sm-6">
           <% if current_user %>
-              welcome <%= current_user.email %>
+              <%= t('static.welcome') %> <%= current_user.email %>
           <% end %>
         </div>
         <div class="col-sm-6 text-right">
@@ -22,22 +22,23 @@
     <div class="panel panel-default">
       <div class="panel-body menu-panel">
         <div class="col-sm-9">
-          <%= link_to 'Home', :static_pages_home, class: 'btn btn-default' %>
-          <%= link_to 'Customer services', :static_pages_customer_services, class: 'btn btn-default' %>
-          <%= link_to 'Services for applicants', :static_pages_services_for_applicants, class: 'btn btn-default' %>
-          <%= link_to 'Reference', :static_pages_reference, class: 'btn btn-default' %>
-          <%= link_to 'Contact', :static_pages_contact, class: 'btn btn-default' %>
+          <%= link_to t('static.home'), :static_pages_home, class: 'btn btn-default' %>
+          <%= link_to t('static.about'), :static_pages_about, class: 'btn btn-default' %>
+          <%= link_to t('static.customer_services'), :static_pages_customer_services, class: 'btn btn-default' %>
+          <%= link_to t('static.services_for_applicants'), :static_pages_services_for_applicants, class: 'btn btn-default' %>
+          <%= link_to t('static.reference'), :static_pages_reference, class: 'btn btn-default' %>
+          <%= link_to t('static.contact'), :static_pages_contact, class: 'btn btn-default' %>
           <% if current_user %>
-              <%= link_to 'Users', :users, class: 'btn btn-default' %>
-              <%= link_to 'Offers', :offers, class: 'btn btn-default' %>
+              <%= link_to t('static.users'), :users, class: 'btn btn-default' %>
+              <%= link_to t('static.offers'), :offers, class: 'btn btn-default' %>
           <% end %>
         </div>
         <div class="col-sm-3 text-right">
           <% if current_user %>
-              <%= link_to 'Edit Profile', edit_user_path(current_user.id), class: 'btn btn-default' %>
-              <%= link_to 'Logout', :logout, method: :post, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+              <%= link_to t('user.edit_profile'), edit_user_path(current_user.id), class: 'btn btn-default' %>
+              <%= link_to t('logout'), :logout, method: :post, data: { confirm: t('are_you_sure') }, class: 'btn btn-default' %>
           <% else %>
-              <%= link_to 'Login', :login, class: 'btn btn-default' %>
+              <%= link_to t('login'), :login, class: 'btn btn-default' %>
           <% end %>
         </div>
       </div>

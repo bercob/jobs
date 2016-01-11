@@ -1,0 +1,12 @@
+en:
+  static:
+    home: 'Home'
+    detail: 'detail'
+    customer_services: 'Customer services'
+    services_for_applicants: 'Services for applicants'
+    reference: 'Reference'
+    contact: 'Contact'
+    users: 'Users'
+    offers: 'Offers'
+    about: 'About'
+    welcome: 'welcome'

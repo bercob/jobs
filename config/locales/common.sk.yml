@@ -1,2 +1,11 @@
 sk:
   not_set: 'nie je zadaný'
+  login_required: 'Je potrebné sa prihlásiť.'
+  page_not_found: 'Stránka sa nenašla.'
+  login_ok: 'Prihlásenie bolo úspešné.'
+  login_nok: 'Prihlásenie bolo neúspešné.'
+  logout_ok: 'Odhlásenie bolo úspešné.'
+  admin_needed: 'Je potrebné mať administrátorské práva.'
+  login: 'Prihlásenie'
+  logout: 'Odhlásenie'
+  are_you_sure: 'Ste si istý ?'

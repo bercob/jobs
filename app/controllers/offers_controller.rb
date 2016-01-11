@@ -28,10 +28,10 @@ class OffersController < ApplicationController
   # POST /offers.json
   def create
     @offer = Offer.new(offer_params)
-    @offer.offer_source = OfferSource.find_by(name: 'local')
+    @offer.offer_source = OfferSource.local
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
+        format.html { redirect_to @offer, notice: t('offer.created') }
         format.json { render :show, status: :created, location: @offer }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
-        format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
+        format.html { redirect_to @offer, notice: t('offer.updated') }
         format.json { render :show, status: :ok, location: @offer }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class OffersController < ApplicationController
   def destroy
     @offer.destroy
     respond_to do |format|
-      format.html { redirect_to offers_url, notice: 'Offer was successfully destroyed.' }
+      format.html { redirect_to offers_url, notice: t('offer.destroyed') }
       format.json { head :no_content }
     end
   end

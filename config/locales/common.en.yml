@@ -1,0 +1,11 @@
+en:
+  not_set: 'not set'
+  login_required: 'Login is required.'
+  page_not_found: 'Page not found.'
+  login_ok: 'Login successful.'
+  login_nok: 'Login failed.'
+  logout_ok: 'Logged out.'
+  admin_needed: 'Admin permission needed'
+  login: 'Login'
+  logout: 'Logout'
+  are_you_sure: 'Are you sure ?'

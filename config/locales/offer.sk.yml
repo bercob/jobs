@@ -1,3 +1,6 @@
 sk:
   offer:
     not_url: 'nie je URL'
+    created: 'Pracovná ponuka bola úspešne vytvorená.'
+    updated: 'Pracovná ponuka bola úspešne upravená.'
+    destroyed: 'Pracovná ponuka bola úspešne zrušená.'
