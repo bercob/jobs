@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get '404', to: 'errors#error_404', code: 404
 
   resources :offers
+
+
   get 'static_pages/home'
 
   get 'static_pages/contact'

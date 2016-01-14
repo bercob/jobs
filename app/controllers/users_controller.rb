@@ -86,7 +86,7 @@ class UsersController < ApplicationController
 
     def require_admin
       unless current_user.admin?
-        redirect_to :back, alert: t('admin_needed')
+        redirect_back_or_to :users, alert: t('admin_needed')
       end
     end
 

@@ -14,8 +14,8 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+jobtype1:
+  name: jobtype1
 
-two:
-  name: MyString
+jobtype2:
+  name: jobtype2

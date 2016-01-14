@@ -9,7 +9,7 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  admin            :boolean
-#  degree           :integer
+#  degree_id        :integer
 #
 # Indexes
 #

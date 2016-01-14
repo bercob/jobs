@@ -24,26 +24,34 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  offer_id: 
+offer_local:
+  external_offer_id: 123456
   offerdate: 2016-01-02
   last_update: 2016-01-02 12:15:37
-  position: MyString
-  location: MyString
-  location: MyString
-  content: MyString
-  url: MyString
-  company: MyString
-  ico: MyString
+  position: tailor
+  location: Bratislava
+  content: some content
+  url: http://www.google.sk
+  company: Jobs
+  ico: 12345
+  offer_source: local
+  offercategories: oc1, oc2
+  offerpositions: op1
+  offerregions: or1, or2
+  jobtypes: jobtype1, jobtype2
 
-two:
-  offer_id: 
+offer_profesia:
+  external_offer_id:
   offerdate: 2016-01-02
   last_update: 2016-01-02 12:15:37
-  position: MyString
-  location: MyString
-  location: MyString
-  content: MyString
-  url: MyString
-  company: MyString
-  ico: MyString
+  position: pilot
+  location: Senec
+  content: whatever
+  url:
+  company: AIR Slovakia
+  ico: 56789
+  offer_source: profesia
+  offercategories: oc1
+  offerpositions: op1, op2
+  offerregions: or1
+  jobtypes: jobtype1

@@ -14,8 +14,8 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+oc1:
+  name: Offer category 1
 
-two:
-  name: MyString
+oc2:
+  name: Offer category 2

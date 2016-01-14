@@ -19,12 +19,14 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  email: MyString
-  crypted_password: MyString
-  salt: MyString
+user_na:
+  email: user@test.sk
+  admin: false
+  degree: ing
+  languages: en, sk
 
-two:
-  email: MyString
-  crypted_password: MyString
-  salt: MyString
+user_admin:
+  email: admin@test.sk
+  admin: true
+  degree: mgr
+  languages: sk

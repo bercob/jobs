@@ -10,6 +10,10 @@
 #  index_offercategories_offers_on_offer_id_and_offercategory_id  (offer_id,offercategory_id) UNIQUE
 #
 
-class OffercategoriesOffer < ActiveRecord::Base
+require 'test_helper'
 
+class OffercategoriesOfferTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

@@ -14,8 +14,8 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+local:
+  name: local
 
-two:
-  name: MyString
+profesia:
+  name: profesia.sk

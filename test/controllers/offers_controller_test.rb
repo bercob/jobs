@@ -2,7 +2,8 @@ require 'test_helper'
 
 class OffersControllerTest < ActionController::TestCase
   setup do
-    @offer = offers(:one)
+    @offer = offers(:offer_local)
+    session[:user_id] = users(:user_na).id
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class OffersControllerTest < ActionController::TestCase
 
   test "should create offer" do
     assert_difference('Offer.count') do
-      post :create, offer: { company: @offer.company, content: @offer.content, ico: @offer.ico, last_update: @offer.last_update, location: @offer.location, location: @offer.location, offer_id: @offer.offer_id, offerdate: @offer.offerdate, position: @offer.position, url: @offer.url }
+      post :create, offer: { company: @offer.company, content: @offer.content, ico: @offer.ico, last_update: @offer.last_update, location: @offer.location, external_offer_id: @offer.external_offer_id, offerdate: @offer.offerdate, position: @offer.position, url: @offer.url }
     end
 
     assert_redirected_to offer_path(assigns(:offer))
@@ -35,7 +36,7 @@ class OffersControllerTest < ActionController::TestCase
   end
 
   test "should update offer" do
-    patch :update, id: @offer, offer: { company: @offer.company, content: @offer.content, ico: @offer.ico, last_update: @offer.last_update, location: @offer.location, location: @offer.location, offer_id: @offer.offer_id, offerdate: @offer.offerdate, position: @offer.position, url: @offer.url }
+    patch :update, id: @offer, offer: { company: @offer.company, content: @offer.content, ico: @offer.ico, last_update: @offer.last_update, location: @offer.location, external_offer_id: @offer.external_offer_id, offerdate: @offer.offerdate, position: @offer.position, url: @offer.url }
     assert_redirected_to offer_path(assigns(:offer))
   end
 

@@ -35,6 +35,9 @@ class Offer < ActiveRecord::Base
   before_save :set_external_offer_id
   validates :position, presence: true
 
+  scope :by_offerdate, -> { order 'offerdate' }
+  scope :by_company, -> (company) { where 'company = ?', company}
+
   #enum offer_source: ['local', 'profesia.sk']
 
   def generate_timestamp

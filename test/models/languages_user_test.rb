@@ -2,10 +2,8 @@
 #
 # Table name: languages_users
 #
-#  user_id     :integer
-#  language_id :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  user_id     :integer          not null
+#  language_id :integer          not null
 #
 # Indexes
 #

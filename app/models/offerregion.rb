@@ -16,4 +16,6 @@ class Offerregion < ActiveRecord::Base
   has_and_belongs_to_many :offers
 
   validates :name, presence: true, uniqueness: true
+
+  scope :by_name, -> { order 'name asc' }
 end

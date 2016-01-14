@@ -71,10 +71,10 @@ class OffersController < ApplicationController
     end
 
     def set_codelists
-      @offercategories = Offercategory.order('name asc').all
-      @jobtypes = Jobtype.order('name asc').all
-      @offerregions = Offerregion.order('name asc').all
-      @offerpositions = Offerposition.order('name asc').all
+      @offercategories = Offercategory.by_name
+      @jobtypes = Jobtype.by_name
+      @offerregions = Offerregion.by_name
+      @offerpositions = Offerposition.by_name
     end
 
   # Never trust parameters from the scary internet, only allow the white list through.

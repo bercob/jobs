@@ -14,8 +14,8 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+or1:
+  name: Offer region 1
 
-two:
-  name: MyString
+or2:
+  name: Offer region 2

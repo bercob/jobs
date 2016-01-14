@@ -3,8 +3,6 @@ class CreateOfferregionsOffers < ActiveRecord::Migration
     create_table :offerregions_offers, id: false do |t|
       t.integer :offer_id, null: false
       t.integer :offerregion_id, null: false
-
-      t.timestamps null: false
     end
     add_index :offerregions_offers, %w(offer_id offerregion_id), unique: true
     add_foreign_key :offerregions_offers, :offer_id, on_delete: :cascade

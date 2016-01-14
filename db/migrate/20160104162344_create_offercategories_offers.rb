@@ -3,8 +3,6 @@ class CreateOffercategoriesOffers < ActiveRecord::Migration
     create_table :offercategories_offers, id: false do |t|
       t.integer :offer_id, null: false
       t.integer :offercategory_id, null: false
-
-      t.timestamps null: false
     end
 
     add_index :offercategories_offers, %w(offer_id offercategory_id), unique: true

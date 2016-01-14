@@ -2,10 +2,8 @@
 #
 # Table name: offerregions_offers
 #
-#  offer_id       :integer
-#  offerregion_id :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  offer_id       :integer          not null
+#  offerregion_id :integer          not null
 #
 # Indexes
 #

@@ -30,10 +30,8 @@ ActiveRecord::Schema.define(version: 20160105102456) do
   add_index "jobtypes", ["name"], name: "index_jobtypes_on_name", unique: true
 
   create_table "jobtypes_offers", id: false, force: :cascade do |t|
-    t.integer  "offer_id"
-    t.integer  "jobtype_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "offer_id"
+    t.integer "jobtype_id"
   end
 
   add_index "jobtypes_offers", ["offer_id", "jobtype_id"], name: "index_jobtypes_offers_on_offer_id_and_jobtype_id", unique: true
@@ -47,10 +45,8 @@ ActiveRecord::Schema.define(version: 20160105102456) do
   add_index "languages", ["name"], name: "index_languages_on_name", unique: true
 
   create_table "languages_users", id: false, force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "language_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer "user_id",     null: false
+    t.integer "language_id", null: false
   end
 
   add_index "languages_users", ["user_id", "language_id"], name: "index_languages_users_on_user_id_and_language_id", unique: true
@@ -72,10 +68,8 @@ ActiveRecord::Schema.define(version: 20160105102456) do
   add_index "offercategories", ["name"], name: "index_offercategories_on_name", unique: true
 
   create_table "offercategories_offers", id: false, force: :cascade do |t|
-    t.integer  "offer_id",         null: false
-    t.integer  "offercategory_id", null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer "offer_id",         null: false
+    t.integer "offercategory_id", null: false
   end
 
   add_index "offercategories_offers", ["offer_id", "offercategory_id"], name: "index_offercategories_offers_on_offer_id_and_offercategory_id", unique: true
@@ -89,10 +83,8 @@ ActiveRecord::Schema.define(version: 20160105102456) do
   add_index "offerpositions", ["name"], name: "index_offerpositions_on_name", unique: true
 
   create_table "offerpositions_offers", id: false, force: :cascade do |t|
-    t.integer  "offer_id"
-    t.integer  "offerposition_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer "offer_id",         null: false
+    t.integer "offerposition_id", null: false
   end
 
   add_index "offerpositions_offers", ["offer_id", "offerposition_id"], name: "index_offerpositions_offers_on_offer_id_and_offerposition_id", unique: true
@@ -106,10 +98,8 @@ ActiveRecord::Schema.define(version: 20160105102456) do
   add_index "offerregions", ["name"], name: "index_offerregions_on_name", unique: true
 
   create_table "offerregions_offers", id: false, force: :cascade do |t|
-    t.integer  "offer_id"
-    t.integer  "offerregion_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer "offer_id",       null: false
+    t.integer "offerregion_id", null: false
   end
 
   add_index "offerregions_offers", ["offer_id", "offerregion_id"], name: "index_offerregions_offers_on_offer_id_and_offerregion_id", unique: true

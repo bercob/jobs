@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     Import::Profesia.new.import!
-    @offers = Offer.order('offerdate desc').all
+    @offers = Offer.by_offerdate
   end
 
   def contact

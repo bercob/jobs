@@ -2,10 +2,8 @@
 #
 # Table name: offerpositions_offers
 #
-#  offer_id         :integer
-#  offerposition_id :integer
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  offer_id         :integer          not null
+#  offerposition_id :integer          not null
 #
 # Indexes
 #
