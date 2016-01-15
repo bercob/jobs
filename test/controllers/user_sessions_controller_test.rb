@@ -11,9 +11,14 @@ class UserSessionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get create" do
+  test "should get create with registered user" do
     get :create, user_sessions: {email: @user.email}
     assert_response :success
+  end
+
+  test "should get create with unregistered user" do
+    get :create, user_sessions: {email: 'not_registered@test.sk'}
+    assert_template :new
   end
 
   test "should get destroy without logged in" do
