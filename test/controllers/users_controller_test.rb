@@ -3,8 +3,8 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
 
   setup do
-    @user_admin = users(:user_admin)
-    @user_na = users(:user_na)
+    @user_admin = FactoryGirl.create :user_admin
+    @user_na = FactoryGirl.create :user_na
     @user_new = User.new(email: 'new@test.sk', password: 'password', password_confirmation: 'password', admin: false)
   end
 

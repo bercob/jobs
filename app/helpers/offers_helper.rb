@@ -4,7 +4,7 @@ module OffersHelper
     if offer.url.present?
       link_to offer.offer_source.name, url_with_protocol(offer.url), target: '_blank'
     else
-      I18n.t('offer.not_url')
+      t('offer.not_url')
     end
   end
 

@@ -1,5 +1,5 @@
-<%= simple_form_for :user_sessions, url: user_sessions_path do |f| %>
-    <div><%= f.input :email, input_html: { value: @email } %></div>
+<%= simple_form_for @user, url: user_sessions_path do |f| %>
+    <div><%= f.input :email %></div>
     <div><%= f.input :password %></div>
-    <div><%= f.button :submit, 'Login' %></div>
+    <div><%= f.button :submit, 'Login', id: 'btn_login' %></div>
 <% end %>

@@ -3,19 +3,14 @@ class UserSessionsController < ApplicationController
 
   def new
     @user = User.new
-    if params.has_key?('user_sessions')
-      @email = params[:user_sessions][:email]
-    end
   end
 
   def create
-    if @user = login(params[:user_sessions][:email], params[:user_sessions][:password])
+    if @user = login(params[:user][:email], params[:user][:password])
       redirect_back_or_to(:users, notice: t('login_ok'))
     else
       flash.now[:alert] = t('login_nok')
-      @email = params[:user_sessions][:email]
-      render action: 'new'
-      #redirect_to new_user_session_path(email: params[:email]), alert: 'Login failed'
+      redirect_to :login, alert: 'Login failed'
     end
   end
 

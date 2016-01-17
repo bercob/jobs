@@ -3,7 +3,8 @@ require 'test_helper'
 class UserSessionsControllerTest < ActionController::TestCase
 
   setup do
-    @user = users(:user_na)
+    @user = FactoryGirl.create(:user_na)
+    @user_attributes = FactoryGirl.attributes_for(:user_na)
   end
 
   test "should get new" do
@@ -12,13 +13,13 @@ class UserSessionsControllerTest < ActionController::TestCase
   end
 
   test "should get create with registered user" do
-    get :create, user_sessions: {email: @user.email}
-    assert_response :success
+    get :create, user: {email: @user.email, password: @user_attributes[:password]}
+    assert_redirected_to :users
   end
 
   test "should get create with unregistered user" do
-    get :create, user_sessions: {email: 'not_registered@test.sk'}
-    assert_template :new
+    get :create, user: {email: 'not_registered@test.sk', password: 'password'}
+    assert_redirected_to :login
   end
 
   test "should get destroy without logged in" do

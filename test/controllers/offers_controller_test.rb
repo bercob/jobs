@@ -2,7 +2,7 @@ require 'test_helper'
 
 class OffersControllerTest < ActionController::TestCase
   setup do
-    @user_na = users(:user_na)
+    @user_na = FactoryGirl.create :user_na
     @offer_extern = offers(:offer_profesia)
   end
 

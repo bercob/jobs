@@ -42,6 +42,9 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'factory_girl_rails'
+  gem 'spinach-rails'
+  gem 'database_cleaner'
 end
 
 group :development do
