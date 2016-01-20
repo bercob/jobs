@@ -5,7 +5,7 @@ class UsersControllerTest < ActionController::TestCase
   setup do
     @user_admin = FactoryGirl.create :user_admin
     @user_na = FactoryGirl.create :user_na
-    @user_new = User.new(email: 'new@test.sk', password: 'password', password_confirmation: 'password', admin: false)
+    @user_new = FactoryGirl.attributes_for :user_new
   end
 
   test "should get index as admin" do
@@ -47,7 +47,7 @@ class UsersControllerTest < ActionController::TestCase
   test "should create user as admin" do
     login_user(@user_admin)
     assert_difference('User.count') do
-      post :create, user: { email: @user_new.email, password: @user_new.password, password_confirmation: @user_new.password_confirmation }
+      post :create, user: { email: @user_new[:email], password: @user_new[:password], password_confirmation: @user_new[:password_confirmation] }
     end
 
     assert_redirected_to user_path(assigns(:user))
