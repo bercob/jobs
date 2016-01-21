@@ -1,6 +1,6 @@
 <p>
   <strong>External offer ID:</strong>
-  <%= t(@offer.external_offer_id) %>
+  <%= t(@offer.external_offer_id) if @offer.external_offer_id.present? %>
 </p>
 
 <p>
