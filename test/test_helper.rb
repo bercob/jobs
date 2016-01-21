@@ -3,6 +3,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'database_cleaner'
 
+Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
+
 class ActiveSupport::TestCase
   DatabaseCleaner.strategy = :truncation
   DatabaseCleaner.clean

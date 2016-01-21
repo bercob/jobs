@@ -75,7 +75,7 @@ class UsersController < ApplicationController
       @languages = Language.order('name asc').all
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       if current_user.admin?
         params.require(:user).permit(:email, :password, :password_confirmation, :degree_id, { :language_ids => [] }, :admin)

@@ -28,6 +28,8 @@ gem 'bootstrap-sass'
 
 gem 'whenever', :require => false
 
+gem 'select2-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -45,6 +47,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'spinach-rails'
   gem 'database_cleaner'
+  gem 'minitest-reporters'
 end
 
 group :development do
@@ -57,6 +60,9 @@ group :development do
   gem 'pry-rails'
   gem 'awesome_print'
   gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
 end
 
 group :production do

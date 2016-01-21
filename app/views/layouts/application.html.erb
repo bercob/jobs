@@ -2,22 +2,22 @@
 <html>
 <head>
   <title>Jobs</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <% if current_user %>
-              <%= t('static.welcome') %> <%= current_user.email %>
-          <% end %>
-        </div>
-        <div class="col-sm-6 text-right">
-          <%= link_to 'sk', url_for(lang: 'sk') %> | <%= link_to 'en', url_for(lang: 'en') %>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <% if current_user %>
+          <%= t('static.welcome') %> <%= current_user.email %>
+      <% end %>
+    </div>
+    <div class="col-sm-6 text-right">
+      <%= link_to 'sk', url_for(lang: 'sk') %> | <%= link_to 'en', url_for(lang: 'en') %>
+    </div>
+  </div>
   <div class="row">
     <div class="panel panel-default">
       <div class="panel-body menu-panel">
@@ -36,7 +36,7 @@
         <div class="col-sm-3 text-right">
           <% if current_user %>
               <%= link_to t('user.edit_profile'), edit_user_path(current_user.id), class: 'btn btn-default' %>
-              <%= link_to t('logout'), :logout, method: :post, data: { confirm: t('are_you_sure') }, class: 'btn btn-default' %>
+              <%= link_to t('logout'), :logout, method: :post, data: {confirm: t('are_you_sure')}, class: 'btn btn-default' %>
           <% else %>
               <%= link_to t('login'), :login, class: 'btn btn-default' %>
           <% end %>
@@ -52,7 +52,7 @@
           <div id="notice" class="alert alert-success">
             <button class="close" type="button" data-dismiss="alert">×</button>
             <%= flash[:notice] %></div>
-      <% end  %>
+      <% end %>
       <% if flash[:alert] %>
           <div class="alert alert-danger">
             <button class="close" type="button" data-dismiss="alert">×</button>
@@ -62,5 +62,6 @@
   </div>
 </div>
 
+<%= javascript_include_tag "body_end" %>
 </body>
 </html>

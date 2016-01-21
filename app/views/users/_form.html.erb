@@ -1,23 +1,12 @@
 <%= simple_form_for @user do |f| %>
     <%= f.input :email %>
-
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-
     <%= f.association :degree %>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">Languages</div>
-      <div class="panel-body panel-vertical-scroll">
-        <%= f.association :languages, label: false, collection: @languages, as: :check_boxes %>
-      </div>
-    </div>
-
+    <%= f.association :languages, collection: @languages, html_input: { multiple: true } %>
     <% if current_user.admin? %>
         <%= f.input :admin %>
     <% end %>
 
     <%= f.button :submit %>
 <% end %>
-
-

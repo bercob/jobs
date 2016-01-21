@@ -1,7 +1,6 @@
 <%= simple_form_for(@offer) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
     <%= f.input :external_offer_id %>
     <%= f.input :offerdate %>
     <%= f.input :position %>
@@ -10,49 +9,10 @@
     <%= f.input :url %>
     <%= f.input :company %>
     <%= f.input :ico %>
-    <div class="panel panel-default">
-      <div class="panel-heading">Offer categories</div>
-      <div class="panel-body panel-vertical-scroll">
-        <%= f.association :offercategories,
-                          label: false,
-                          collection: @offercategories,
-                          as: :check_boxes
-        %>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">Job types</div>
-      <div class="panel-body panel-vertical-scroll">
-        <%= f.association :jobtypes,
-                          label: false,
-                          collection: @jobtypes,
-                          as: :check_boxes
-        %>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">Offer positions</div>
-      <div class="panel-body panel-vertical-scroll">
-        <%= f.association :offerpositions,
-                          label: false,
-                          collection: @offerpositions,
-                          as: :check_boxes
-        %>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">Offer regions</div>
-      <div class="panel-body panel-vertical-scroll">
-        <%= f.association :offerregions,
-                          label: false,
-                          collection: @offerregions,
-                          as: :check_boxes
-        %>
-      </div>
-    </div>
-  </div>
+    <%= f.association :offercategories, collection: @offercategories, html_input: { multiple: true } %>
+    <%= f.association :jobtypes, collection: @jobtypes, html_input: { multiple: true } %>
+    <%= f.association :offerpositions, collection: @offerpositions, html_input: { multiple: true } %>
+    <%= f.association :offerregions, collection: @offerregions, html_input: { multiple: true } %>
 
-  <div class="form-actions">
     <%= f.button :submit %>
-  </div>
 <% end %>

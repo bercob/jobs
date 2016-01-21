@@ -13,7 +13,7 @@ class UserSessionsControllerTest < ActionController::TestCase
   end
 
   test "should get create with registered user" do
-    get :create, user: {email: @user.email, password: @user_attributes[:password]}
+    get :create, user: {email: @user_attributes[:email], password: @user_attributes[:password]}
     assert_redirected_to :users
   end
 
@@ -28,7 +28,7 @@ class UserSessionsControllerTest < ActionController::TestCase
   end
 
   test "should get destroy with logged in" do
-    session[:user_id] = @user.id
+    login_user(@user)
     get :destroy
     assert_redirected_to :static_pages_home
   end
