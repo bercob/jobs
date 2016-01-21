@@ -16,7 +16,7 @@
   <tbody>
   <% @offers.each do |offer| %>
       <tr>
-        <td><%= t(offer.external_offer_id) %></td>
+        <td><%= t(offer.external_offer_id) if offer.external_offer_id.present? %></td>
         <td><%= l offer.offerdate %></td>
         <td><%= l offer.last_update, format: :long %></td>
         <td><%= offer.position %></td>
