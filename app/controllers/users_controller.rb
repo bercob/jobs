@@ -58,6 +58,11 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    if current_user.id == @user.id
+      redirect_back_or_to :users, alert: t('user.not_destroy_yourself')
+      return
+    end
+
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: t('user.destroyed') }

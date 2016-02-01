@@ -3,4 +3,5 @@ sk:
     created: 'Užívateľ bol úspešne vytvorený.'
     updated: 'Užívateľ bol úspešne upravený.'
     destroyed: 'Užívateľ bol úspešne zrušený.'
+    not_destroy_yourself: 'Nie je možné vymazať seba samého.'
     edit_profile: 'Editácia profilu'

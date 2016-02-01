@@ -3,4 +3,5 @@ en:
     created: 'User was successfully created.'
     updated: 'User was successfully updated.'
     destroyed: 'User was successfully destroyed.'
+    not_destroy_yourself: 'You cannot delete yourself.'
     edit_profile: 'Edit profile'

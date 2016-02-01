@@ -158,4 +158,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to :login
   end
 
+  test "should destroy yourself" do
+    login_user(@user_na)
+    assert_no_difference('User.count', -1) do
+      delete :destroy, id: @user_na
+    end
+
+    assert_redirected_to users_path
+  end
+
 end
