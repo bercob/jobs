@@ -23,15 +23,15 @@
           %>
         </td>
         <td width="50%"><%= check_box_tag 'yes', '1', user.admin, disabled: true %></td>
-        <td><%= link_to 'Show', user , class: 'btn btn-default' %></td>
+        <td><%= link_to 'Show', user, id: "show_#{user.id}", class: 'btn btn-default' %></td>
         <td>
         <% if current_user.admin? || current_user.id == user.id %>
-          <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-default' %>
+          <%= link_to 'Edit', edit_user_path(user), id: "edit_#{user.id}", class: 'btn btn-default' %>
         <% end %>
         </td>
         <td>
         <% if current_user.admin? %>
-          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+          <%= link_to 'Destroy', user, id: "destroy_#{user.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
         <% end %>
         </td>
       </tr>

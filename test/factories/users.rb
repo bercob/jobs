@@ -16,5 +16,11 @@ FactoryGirl.define do
       password 'password'
       password_confirmation 'password'
     end
+
+    factory :john_doe do
+      email 'john.doe@example.com'
+      password 'password'
+      password_confirmation 'password'
+    end
   end
 end
