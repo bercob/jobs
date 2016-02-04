@@ -6,6 +6,11 @@ class Spinach::Features::UsersCanLoginAndLogout < Spinach::FeatureSteps
     @user_attributes = FactoryGirl.attributes_for(:user_na)
   end
 
+  step 'An Admin user exists' do
+    @admin = FactoryGirl.create :user_admin
+    @admin_attributes = FactoryGirl.attributes_for(:user_admin)
+  end
+
   step 'I enter wrong credentials' do
     fill_in 'user[email]', with: 'wrong@email.com'
     fill_in 'user[password]', with: 'wrongPassword'
